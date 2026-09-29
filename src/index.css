@@ -1,0 +1,838 @@
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #26372d;
+  background: #e9e1d3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+
+  --green: #193426;
+  --green-deep: #12261b;
+  --cream: #f7f2e9;
+  --ivory: #fcf9f2;
+  --ink: #24352a;
+  --gold: #b2935b;
+  --gold-light: #d4bc8a;
+  --muted: #7c7467;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 50% 0%, #fbf8f1 0, #eee7da 58%, #e7dece 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  max-width: 1440px;
+  margin: 24px auto;
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid #d9cfbc;
+  box-shadow:
+    0 30px 80px #33291b24,
+    0 3px 12px #33291b0d;
+}
+
+.navbar {
+  position: relative;
+  z-index: 3;
+  height: 88px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fcf9f2;
+  border-bottom: 1px solid #e9e0d0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.82;
+  color: var(--green);
+}
+
+.brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 39px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
+
+.brand-sub {
+  align-self: center;
+  margin-top: 7px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.3vw, 36px);
+}
+
+.nav-links a {
+  position: relative;
+  color: #514b3e;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+.nav-links a:not(.nav-book)::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links .nav-book {
+  padding: 14px 19px;
+  border: 1px solid var(--gold);
+  background: var(--green);
+  color: #fff9ed;
+  letter-spacing: 1px;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-links .nav-book:hover {
+  background: #244a35;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 25px;
+}
+
+.hero {
+  min-height: 505px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 55px 8.5%;
+  background:
+    linear-gradient(
+      90deg,
+      #f7f2e9 0%,
+      #f7f2e9f2 29%,
+      #f7f2e9c9 43%,
+      #f7f2e94d 61%,
+      #f7f2e900 78%
+    ),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=2000&q=90")
+      center 48% / cover;
+}
+
+.hero::after {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid #b2935b55;
+  content: "";
+  pointer-events: none;
+}
+
+.hero-copy {
+  width: min(510px, 58%);
+  position: relative;
+  z-index: 1;
+}
+
+.script {
+  color: var(--gold);
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(29px, 3.3vw, 45px);
+}
+
+.hero h1 {
+  margin: 3px 0 0;
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 500;
+  letter-spacing: -3px;
+  line-height: 0.88;
+}
+
+.hero-kicker {
+  margin: 16px 0 20px;
+  color: #655741;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.hero-copy p {
+  max-width: 345px;
+  color: #625b4f;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.button-row {
+  display: flex;
+  gap: 11px;
+  margin-top: 24px;
+}
+
+.button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 1px solid var(--green);
+  background: var(--green);
+  color: #fff9ed;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  background: #294d38;
+}
+
+.button.outline {
+  border-color: #a99168;
+  background: #f9f5ecb8;
+  color: var(--green);
+}
+
+.button.outline:hover {
+  background: var(--green);
+  color: #fff9ed;
+}
+
+.benefits {
+  min-height: 94px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  padding: 17px 6%;
+  background:
+    linear-gradient(100deg, #152d20, #1d3a29 50%, #142b1f);
+  color: #f8f0df;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 17px;
+  border-right: 1px solid #ffffff20;
+}
+
+.benefit:last-child {
+  border: 0;
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #b99a61;
+  border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 17px;
+}
+
+.benefit strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #dec997;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.benefit span {
+  display: block;
+  color: #e5ddcc;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.section {
+  padding: 45px 6% 33px;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(31px, 3.5vw, 43px);
+  font-weight: 500;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.menu-card {
+  overflow: hidden;
+  background: var(--ivory);
+  border: 1px solid #e9e0d1;
+  text-align: center;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 28px #3429191c;
+}
+
+.menu-photo {
+  height: 166px;
+  background-position: center;
+  background-size: cover;
+  transition: transform 350ms ease;
+}
+
+.menu-card:hover .menu-photo {
+  transform: scale(1.035);
+}
+
+.menu-card h3 {
+  margin: 13px 6px 3px;
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.menu-card p {
+  min-height: 33px;
+  margin: 0 8px 5px;
+  color: var(--muted);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.price {
+  display: block;
+  padding-bottom: 14px;
+  color: #9b753d;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 18px;
+  padding: 4px 6% 34px;
+}
+
+.special-card {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  padding: 28px;
+  background:
+    linear-gradient(90deg, #13271df5 0%, #183123ed 43%, #1b302ac2 66%, #172b2030 100%),
+    url("https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&fit=crop&w=1200&q=90")
+      center / cover;
+  color: #f5eddd;
+}
+
+.special-copy {
+  max-width: 260px;
+}
+
+.special-copy .script {
+  color: #d8bd83;
+  font-size: 29px;
+}
+
+.special-copy h3 {
+  margin: 3px 0 9px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+.special-copy p {
+  margin: 0 0 15px;
+  color: #e8dfce;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.special-copy .button {
+  min-height: 35px;
+  padding: 0 15px;
+  border-color: #c7ad77;
+  background: transparent;
+  font-size: 8px;
+}
+
+.special-copy .button:hover {
+  background: #c7ad77;
+  color: var(--green-deep);
+}
+
+.testimonial {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 35px;
+  background:
+    linear-gradient(135deg, #f2eadb, #eee4d2);
+  border: 1px solid #e3d7c3;
+  color: #4d493f;
+}
+
+.quote-mark {
+  color: #b79559;
+  font-family: Georgia, serif;
+  font-size: 55px;
+  line-height: 0.7;
+}
+
+.testimonial blockquote {
+  margin: 4px 0 17px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 21px;
+  line-height: 1.32;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatar {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d3bd90;
+  border-radius: 50%;
+  background: #a88761;
+  color: #fff8ec;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+}
+
+.customer strong {
+  display: block;
+  color: var(--green);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+}
+
+.customer span {
+  color: #887d6b;
+  font-size: 9px;
+}
+
+.gallery-section {
+  padding: 0 6% 35px;
+}
+
+.section-bar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.section-bar h2 {
+  margin: 0;
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.section-bar a {
+  color: #77633f;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.section-bar a:hover {
+  color: var(--green);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 9px;
+}
+
+.gallery-photo {
+  min-height: 150px;
+  background-position: center;
+  background-size: cover;
+  transition:
+    filter 200ms ease,
+    transform 200ms ease;
+}
+
+.gallery-photo:hover {
+  z-index: 1;
+  filter: saturate(1.12);
+  transform: translateY(-3px);
+}
+
+.reservation {
+  display: grid;
+  grid-template-columns: 0.85fr 1.3fr 0.5fr;
+  gap: 25px;
+  align-items: center;
+  padding: 34px 7%;
+  background:
+    linear-gradient(110deg, #eee5d5, #f4ecde 55%, #ece1cf);
+  border-top: 1px solid #e2d7c5;
+}
+
+.reservation h2 {
+  margin: 0 0 8px;
+  color: var(--green);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 33px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.reservation-copy p:last-child {
+  color: #6c6253;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.reservation-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.reservation-form input,
+.reservation-form select {
+  min-width: 0;
+  height: 40px;
+  padding: 0 11px;
+  border: 1px solid #d9cbb2;
+  border-radius: 0;
+  background: #fcf9f2;
+  color: #665e51;
+  font-size: 10px;
+}
+
+.reservation-form input:focus,
+.reservation-form select:focus {
+  outline: 1px solid var(--gold);
+  border-color: var(--gold);
+}
+
+.reservation-form button {
+  grid-column: 2;
+}
+
+.reservation-note {
+  color: var(--gold);
+  font-family: "Great Vibes", cursive;
+  font-size: 31px;
+  text-align: center;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 30px;
+  padding: 34px 7% 19px;
+  background:
+    linear-gradient(110deg, #142a1e, #1b3727 56%, #14291e);
+  color: #eee6d4;
+}
+
+.footer .brand {
+  color: #d2b674;
+}
+
+.footer .brand-name {
+  font-size: 34px;
+}
+
+.footer p,
+.footer a {
+  color: #d1d4c9;
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.footer a:hover {
+  color: #e0c890;
+}
+
+.footer h3 {
+  margin: 3px 0 12px;
+  color: #d4bb84;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #ffffff24;
+  color: #c6c9bd;
+  font-size: 9px;
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    margin: 0;
+    border: 0;
+  }
+
+  .navbar {
+    height: 70px;
+    padding: 0 5%;
+  }
+
+  .brand-name {
+    font-size: 32px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 70px;
+    left: 0;
+    right: 0;
+    padding: 20px 6%;
+    background: #fcf9f2;
+    box-shadow: 0 14px 24px #30271a20;
+  }
+
+  .nav-links.open {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .nav-links .nav-book {
+    text-align: center;
+  }
+
+  .hero {
+    min-height: 450px;
+    padding: 38px 7%;
+    background:
+      linear-gradient(90deg, #f7f2e9f5 0%, #f7f2e9dc 53%, #f7f2e366 100%),
+      url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1300&q=85")
+        center / cover;
+  }
+
+  .hero::after {
+    inset: 10px;
+  }
+
+  .hero-copy {
+    width: 86%;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 17px;
+    padding: 20px 4%;
+  }
+
+  .benefit:nth-child(2) {
+    border-right: 0;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-card:last-child {
+    display: none;
+  }
+
+  .menu-photo {
+    height: 150px;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-photo {
+    min-height: 115px;
+  }
+
+  .reservation {
+    grid-template-columns: 1fr;
+    padding: 29px 7%;
+  }
+
+  .reservation-note {
+    display: none;
+  }
+
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    padding: 28px 7% 17px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    min-height: 400px;
+  }
+
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 47px;
+  }
+
+  .hero-kicker {
+    letter-spacing: 2.5px;
+  }
+
+  .benefit {
+    gap: 8px;
+    padding: 0 5px;
+  }
+
+  .benefit-icon {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+  }
+
+  .section {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .menu-photo {
+    height: 120px;
+  }
+
+  .footer {
+    gap: 14px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
