@@ -836,3 +836,52 @@ button {
     gap: 7px;
   }
 }
+.navbar {
+  background: linear-gradient(110deg, #152b20, #203b2c 55%, #172e22);
+  border-bottom: 1px solid #b2935b;
+  box-shadow: 0 5px 18px #14251b20;
+}
+
+.navbar .brand {
+  color: #f7f0e4;
+}
+
+.navbar .brand-sub {
+  color: #d3b77b;
+}
+
+.navbar .nav-links a:not(.nav-book) {
+  color: #eee8dc;
+  transition: color 180ms ease;
+}
+
+.navbar .nav-links a:not(.nav-book):hover {
+  color: #d6bc83;
+}
+
+.navbar .nav-links a:not(.nav-book)::after {
+  background: #d6bc83;
+}
+
+.navbar .nav-links .nav-book {
+  border: 1px solid #c4a76a;
+  background: transparent;
+  color: #e3cc98;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.navbar .nav-links .nav-book:hover {
+  background: #c4a76a;
+  color: #172e22;
+}
+
+.navbar .menu-toggle {
+  color: #f7f0e4;
+}
+
+@media (max-width: 760px) {
+  .navbar .nav-links {
+    background: #172e22;
+    border-top: 1px solid #b2935b;
+  }
+}
